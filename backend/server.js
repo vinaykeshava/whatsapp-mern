@@ -1,25 +1,42 @@
 import Messages from "../backend/dbmessage.js"
 import express  from "express";
-import mongoose from "mongoose";
-
+import mongoose from 'mongoose';
+// var MongoClient = require('mongodb').MongoClient;
+import { MongoClient } from 'mongodb'
 
 //app config
 const app = express()
-const port = process.env.PORT || 9000
+const port = process.env.PORT || 3001
 
 
 //middleware
 app.use(express.json());
 
 //DB
-const connection_url = 'mongodb+srv://admin:LG6QmVokCLNTeRGG@cluster0.3bdu2.mongodb.net/myFirstDatabase?retryWrites=true&w=majority';
 
-mongoose.connect(connection_url , {
 
-});
+// mongoose.connect(connection_url);
 
+
+//   mongoose.connection.on("connected", (err) => {
+//     if (err) {
+//       console.log(err.kind);
+//     } else {
+//       console.log("Connected to MongoDB");
+//     }
+//   });
 
 //???
+
+// pavan
+const url = "mongodb://localhost:27017";
+
+MongoClient.connect(url, function(err, db) {
+  if (err) throw err;
+  console.log("Database created!");
+  db.close();
+});
+
 
 //api routes
 app.get('/', (req,res)=>{
@@ -34,7 +51,7 @@ app.post('/messages/new', (req,res) => {
             res.status(500).send(err)
         }
         else{
-            res.status(201).send(`new mesage created : \n ${data}`)
+            res.status(201).send(data)
         }
     })
 })
