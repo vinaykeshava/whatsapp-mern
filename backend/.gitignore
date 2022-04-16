@@ -1,4 +1,4 @@
 node_modules
 
 #personnel
-mongodb-atlas.txt
+./mongodb-atlas.txt
