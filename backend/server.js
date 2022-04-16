@@ -32,7 +32,7 @@ app.use(cors());
 
 // pavan
 // const url = "mongodb://localhost:27017/WhatsappDb2";
-const url = "mongodb+srv://admin:UUo36ZJZP9h2XE91@cluster0.alj5s.mongodb.net/whatsdb?retryWrites=true&w=majority";
+const url = "mongodb+srv://<userName>:<password>@cluster0.alj5s.mongodb.net/<yourDbname>?retryWrites=true&w=majority";
 mongoose.connect(url);
 
 let db = mongoose.connection;
